@@ -37,6 +37,5 @@ let user = "xming"; in
   ids.gids.nixbld = 350;
 
   environment.systemPackages = with pkgs; [
-    neovim
   ] ++ (import ../../modules/shared/packages.nix { inherit pkgs; });
 }

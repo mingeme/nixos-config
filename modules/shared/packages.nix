@@ -24,6 +24,8 @@ with pkgs; [
   wget
   zip
   zoxide
+  bun
+  neovim
 
   # Encryption and security tools
   age

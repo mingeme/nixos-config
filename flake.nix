@@ -53,28 +53,6 @@
         "create-keys" = mkApp "create-keys" system;
         "check-keys" = mkApp "check-keys" system;
         "rollback" = mkApp "rollback" system;
-        "install" = {
-          type = "app";
-          program = toString (nixpkgs.legacyPackages.aarch64-darwin.writeShellScriptBin "install" ''
-            #!/usr/bin/env bash
-            set -e
-
-            echo "Installing Nix packages for Darwin system..."
-            
-            # 确保 Nix 守护进程正在运行
-            if ! pgrep -x nix-daemon >/dev/null; then
-              echo "Starting nix-daemon..."
-              sudo launchctl load /Library/LaunchDaemons/org.nixos.nix-daemon.plist
-            fi
-            
-            # 构建并激活 Darwin 配置
-            echo "Building and activating Darwin configuration..."
-            nix build .#darwinConfigurations.aarch64-darwin.system
-            ./result/sw/bin/darwin-rebuild switch --flake .
-            
-            echo "Installation complete! All configured packages have been installed."
-          '').outPath + "/bin/install";
-        };
       };
     in
     {
