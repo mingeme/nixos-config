@@ -37,6 +37,7 @@
     cat = "bat --paging=never";
     ps = "procs";
     lv = "lazyv2ex";
+    diff = "difft";
   };
 
   initExtraFirst = ''
@@ -45,25 +46,57 @@
       . /nix/var/nix/profiles/default/etc/profile.d/nix.sh
     fi
 
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
     # Define variables for directories
     export PATH=$HOME/.pnpm-packages/bin:$HOME/.pnpm-packages:$PATH
     export PATH=$HOME/.npm-packages/bin:$HOME/bin:$PATH
     export PATH=$HOME/.local/share/bin:$PATH
-
-    # Remove history data we don't want to see
-    export HISTIGNORE="pwd:ls:cd"
 
     # My editor
     export ALTERNATE_EDITOR=""
     export EDITOR="nvim"
     export VISUAL="nvim"
 
-    # nix shortcuts
-    shell() {
-        nix-shell '<nixpkgs>' -A "$1"
+    export PATH="/Users/xming/.codeium/windsurf/bin:$PATH"
+
+    # pnpm
+    export PNPM_HOME="/Users/xming/Library/pnpm"
+    case ":$PATH:" in
+      *":$PNPM_HOME:"*) ;;
+      *) export PATH="$PNPM_HOME:$PATH" ;;
+    esac
+    # pnpm end
+
+    # Remove history data we don't want to see
+    export HISTIGNORE="pwd:ls:cd"
+
+    export {http,https,all}_proxy="http://127.0.0.1:7890"
+
+    function px() {
+      export {http,https,all}_proxy="http://127.0.0.1:7890"
     }
 
-    # Use difftastic, syntax-aware diffing
-    alias diff=difft
+    function unpx() {
+      unset {http,https,all}_proxy
+    }
+
+    function y() {
+      local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+      yazi "$@" --cwd-file="$tmp"
+      if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        builtin cd -- "$cwd"
+      fi
+      rm -f -- "$tmp"
+    }
+
+    # nix shortcuts
+    shell() {
+      nix-shell '<nixpkgs>' -A "$1"
+    }
+
+    eval "$(zoxide init zsh)"
   '';
 }
