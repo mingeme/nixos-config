@@ -2,7 +2,7 @@
 
 个人基于 Nix/NixOS 的配置管理系统，用于 macOS (Darwin) 和 Linux 环境。该配置允许使用声明式方法管理系统和应用程序包，确保环境一致性和可复现性。
 
-> 本配置基于 [Mitchell Hashimoto 的 nixos-config](https://github.com/mitchellh/nixos-config) 项目进行定制和扩展。
+> 本配置基于 [Dustin Lyons 的 nixos-config](https://github.com/dustinlyons/nixos-config) 项目进行定制和扩展。
 
 ## 功能特点
 
