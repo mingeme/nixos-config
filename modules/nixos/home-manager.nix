@@ -2,8 +2,8 @@
 
 let
   user = "xming";
-  xdg_configHome  = "/home/${user}/.config";
-  shared-programs = import ../shared/home-manager.nix { inherit config pkgs lib; };
+  xdg_configHome = "/home/${user}/.config";
+  shared-programs = import ../shared/home-manager.nix { inherit config pkgs lib user; };
   shared-files = import ../shared/files.nix { inherit config pkgs; };
 
   polybar-user_modules = builtins.readFile (pkgs.substituteAll {
@@ -31,7 +31,7 @@ in
     enableNixpkgsReleaseCheck = false;
     username = "${user}";
     homeDirectory = "/home/${user}";
-    packages = pkgs.callPackage ./packages.nix {};
+    packages = pkgs.callPackage ./packages.nix { };
     file = shared-files // import ./files.nix { inherit user; };
     stateVersion = "21.05";
   };
@@ -114,6 +114,10 @@ in
     };
   };
 
-  programs = shared-programs // {};
+  programs =
+    let
+      sharedPrograms = import ../shared/home-manager.nix { inherit config pkgs lib user; };
+    in
+    { } // sharedPrograms.programs;
 
 }
