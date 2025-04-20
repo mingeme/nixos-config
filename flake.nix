@@ -12,9 +12,13 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    fuckmit = {
+      url = "github:mingeme/fuckmit";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, darwin, home-manager, nixpkgs, disko } @inputs:
+  outputs = { self, darwin, home-manager, nixpkgs, disko, fuckmit } @inputs:
     let
       user = "xming";
       linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
@@ -65,6 +69,13 @@
           inherit system;
           specialArgs = inputs;
           modules = [
+            ({
+              nixpkgs.overlays = [
+                (final: prev: {
+                  fuckmit = fuckmit.packages.${system}.default;
+                })
+              ];
+            })
             home-manager.darwinModules.home-manager
             ./hosts/darwin
           ];

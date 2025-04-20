@@ -64,6 +64,7 @@ with pkgs; [
   httpie
   zsh-autosuggestions
   nix-zsh-completions
+  fuckmit
 
   # Python packages
   python3
