@@ -1,30 +1,43 @@
-{ config, pkgs, lib, user, ... }:
+{ pkgs, ... }:
 {
-  enable = false;
+  enable = true;
   autocd = true;
+  enableCompletion = true;
+
+  oh-my-zsh = {
+    enable = true;
+    plugins = [
+      "git"
+      "httpie"
+    ];
+    theme = "gallois";
+  };
+
   plugins = [
     {
-      name = "powerlevel10k";
-      src = pkgs.zsh-powerlevel10k;
-      file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      name = "zsh-fuckmit";
+      src = pkgs.fetchFromGitHub {
+        owner = "mingeme";
+        repo = "zsh-fuckmit";
+        rev = "2cde93ffc824af305fd8cbc12fa0145d8ebe784b";
+        sha256 = "sha256-vkF5EdBSBosXlwawgenQ1qHkAO8dCTc07IYMoaXiq60=";
+      };
     }
-    {
-      name = "powerlevel10k-config";
-      src = lib.cleanSource ../config;
-      file = "p10k.zsh";
-    }
-    {
-      name = "zsh-autosuggestions";
-      src = pkgs.zsh-autosuggestions;
-      file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
-    }
-    {
-      name = "zsh-syntax-highlighting";
-      src = pkgs.zsh-syntax-highlighting;
-      file = "share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
-    }
-
   ];
+
+  autosuggestion = {
+    enable = true;
+  };
+
+  shellAliases = {
+    lg = "lazygit";
+    vi = "nvim";
+    vim = "nvim";
+    ls = "eza";
+    cat = "bat --paging=never";
+    ps = "procs";
+    lv = "lazyv2ex";
+  };
 
   initExtraFirst = ''
     if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
@@ -52,8 +65,5 @@
 
     # Use difftastic, syntax-aware diffing
     alias diff=difft
-
-    # Always color ls and group directories
-    alias ls='ls --color=auto'
   '';
 }

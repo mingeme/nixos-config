@@ -23,7 +23,6 @@ with pkgs; [
   zip
   zoxide
   bun
-  neovim
 
   # Encryption and security tools
   age
@@ -63,6 +62,8 @@ with pkgs; [
   zsh-completions
   http-prompt
   httpie
+  zsh-autosuggestions
+  nix-zsh-completions
 
   # Python packages
   python3
