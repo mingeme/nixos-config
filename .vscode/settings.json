@@ -15,7 +15,7 @@
     // check https://github.com/nix-community/nixd/blob/main/nixd/docs/configuration.md for all nixd config
     "nixd": {
       "formatting": {
-        "command": ["nixfmt"]
+        "command": ["alejandra"]
       }
     }
   }

@@ -11,10 +11,8 @@ with pkgs; [
   procs
   curlie
   httpie
-  fzf
   lazygit
   btop
-  coreutils
   killall
   neofetch
   openssh
@@ -23,6 +21,7 @@ with pkgs; [
   zip
   zoxide
   bun
+  alejandra
 
   # Encryption and security tools
   age
