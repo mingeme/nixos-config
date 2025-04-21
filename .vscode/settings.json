@@ -9,7 +9,7 @@
       //  "ignored": ["unused_binding", "unused_with"],
       // },
       "formatting": {
-        "command": ["nixpkgs-fmt"]
+        "command": ["alejandra"]
       }
     },
     // check https://github.com/nix-community/nixd/blob/main/nixd/docs/configuration.md for all nixd config
