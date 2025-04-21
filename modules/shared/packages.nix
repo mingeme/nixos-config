@@ -22,6 +22,7 @@ with pkgs; [
   zoxide
   bun
   alejandra
+  nixfmt-rfc-style
 
   # Encryption and security tools
   age
