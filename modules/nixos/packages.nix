@@ -1,8 +1,11 @@
 { pkgs }:
 
 with pkgs;
-let shared-packages = import ../shared/packages.nix { inherit pkgs; }; in
-shared-packages ++ [
+let
+  shared-packages = import ../shared/packages.nix { inherit pkgs; };
+in
+shared-packages
+++ [
 
   # Security and authentication
   yubikey-agent
@@ -27,7 +30,6 @@ shared-packages ++ [
   pavucontrol # Pulse audio controls
 
   # Testing and development tools
-  direnv
   rofi
   rofi-calc
   postgresql

@@ -28,4 +28,5 @@ in
   tmux = importProgram ./tmux.nix;
   vim = importProgram ./vim.nix;
   zsh = importProgram ./zsh.nix;
+  direnv = importProgram ./direnv.nix;
 }
