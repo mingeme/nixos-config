@@ -10,7 +10,6 @@ let
   additionalFiles = import ./files.nix { inherit user config pkgs; };
 in
 {
-
   # It me
   users.users.${user} = {
     name = "${user}";
@@ -31,6 +30,10 @@ in
         ...
       }:
       {
+        imports = [
+          ../shared/fuckmit.nix
+        ];
+
         home = {
           enableNixpkgsReleaseCheck = false;
           packages = pkgs.callPackage ./packages.nix { };

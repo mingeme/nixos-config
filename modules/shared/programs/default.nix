@@ -29,4 +29,5 @@ in
   vim = importProgram ./vim.nix;
   zsh = importProgram ./zsh.nix;
   direnv = importProgram ./direnv.nix;
+  fuckmit = importProgram ./fuckmit.nix;
 }

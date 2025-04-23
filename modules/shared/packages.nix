@@ -1,6 +1,7 @@
 { pkgs }:
 
-with pkgs; [
+with pkgs;
+[
   # General packages for development and system management
   aspell
   aspellDicts.en
@@ -64,7 +65,6 @@ with pkgs; [
   httpie
   zsh-autosuggestions
   nix-zsh-completions
-  fuckmit
 
   # Python packages
   python3
