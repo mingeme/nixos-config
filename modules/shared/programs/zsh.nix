@@ -61,14 +61,6 @@
 
     export PATH="/Users/xming/.codeium/windsurf/bin:$PATH"
 
-    # pnpm
-    export PNPM_HOME="/Users/xming/Library/pnpm"
-    case ":$PATH:" in
-      *":$PNPM_HOME:"*) ;;
-      *) export PATH="$PNPM_HOME:$PATH" ;;
-    esac
-    # pnpm end
-
     # Remove history data we don't want to see
     export HISTIGNORE="pwd:ls:cd"
 
@@ -80,15 +72,6 @@
 
     function unpx() {
       unset {http,https,all}_proxy
-    }
-
-    function y() {
-      local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-      yazi "$@" --cwd-file="$tmp"
-      if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-        builtin cd -- "$cwd"
-      fi
-      rm -f -- "$tmp"
     }
 
     # nix shortcuts

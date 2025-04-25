@@ -31,4 +31,6 @@ in
   direnv = importProgram ./direnv.nix;
   fuckmit = importProgram ./fuckmit.nix;
   fnm = importProgram ./fnm.nix;
+  yazi = importProgram ./yazi.nix;
+  pnpm = importProgram ./pnpm.nix;
 }

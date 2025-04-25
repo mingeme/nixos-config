@@ -33,6 +33,7 @@ in
         imports = [
           ../shared/configs/fuckmit.nix
           ../shared/configs/fnm.nix
+          ../shared/configs/pnpm.nix
         ];
 
         home = {

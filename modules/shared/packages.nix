@@ -7,7 +7,6 @@ with pkgs;
   aspellDicts.en
   bash-completion
   eza
-  yazi
   bat
   procs
   curlie
@@ -23,7 +22,6 @@ with pkgs;
   zoxide
   bun
   zig
-  pnpm
   zig-shell-completions
   alejandra
   nixfmt-rfc-style
