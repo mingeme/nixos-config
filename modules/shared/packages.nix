@@ -22,6 +22,9 @@ with pkgs;
   zip
   zoxide
   bun
+  zig
+  pnpm
+  zig-shell-completions
   alejandra
   nixfmt-rfc-style
 

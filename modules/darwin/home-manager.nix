@@ -31,7 +31,8 @@ in
       }:
       {
         imports = [
-          ../shared/fuckmit.nix
+          ../shared/configs/fuckmit.nix
+          ../shared/configs/fnm.nix
         ];
 
         home = {

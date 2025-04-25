@@ -30,4 +30,5 @@ in
   zsh = importProgram ./zsh.nix;
   direnv = importProgram ./direnv.nix;
   fuckmit = importProgram ./fuckmit.nix;
+  fnm = importProgram ./fnm.nix;
 }

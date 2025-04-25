@@ -47,18 +47,11 @@
     fi
 
     export PATH="/opt/homebrew/bin:$PATH"
-    
+
     export GOBIN="$HOME/go/bin"
     export PATH="$GOBIN:$PATH"
     export PATH="$HOME/.cargo/bin:$PATH"
 
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-    # Define variables for directories
-    export PATH=$HOME/.pnpm-packages/bin:$HOME/.pnpm-packages:$PATH
-    export PATH=$HOME/.npm-packages/bin:$HOME/bin:$PATH
     export PATH=$HOME/.local/share/bin:$PATH
 
     # My editor
