@@ -12,10 +12,6 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    fuckmit = {
-      url = "github:mingeme/fuckmit";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -25,7 +21,6 @@
       home-manager,
       nixpkgs,
       disko,
-      fuckmit,
     }@inputs:
     let
       user = "xming";
@@ -97,9 +92,7 @@
           modules = [
             ({
               nixpkgs.overlays = [
-                (final: prev: {
-                  fuckmit = fuckmit.packages.${system}.default;
-                })
+                (import ./overlays)
               ];
             })
             home-manager.darwinModules.home-manager
