@@ -21,6 +21,7 @@ with pkgs;
   zip
   zoxide
   bun
+  deno
   zig
   zig-shell-completions
   alejandra
