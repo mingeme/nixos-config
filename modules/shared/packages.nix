@@ -48,6 +48,7 @@ with pkgs;
   asciinema
 
   # Text and terminal utilities
+  sd
   fd
   dua
   htop
