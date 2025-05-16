@@ -51,7 +51,7 @@
     export GOBIN="$HOME/go/bin"
     export PATH="$GOBIN:$PATH"
     export PATH="$HOME/.cargo/bin:$PATH"
-
+    export PATH=$HOME/.local/bin:$PATH
     export PATH=$HOME/.local/share/bin:$PATH
 
     # My editor
