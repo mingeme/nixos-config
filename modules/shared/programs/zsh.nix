@@ -74,6 +74,11 @@
       unset {http,https,all}_proxy
     }
 
+    # Load API keys from external file
+    if [[ -f "$HOME/.config/api_keys.sh" ]]; then
+      source "$HOME/.config/api_keys.sh"
+    fi
+
     # nix shortcuts
     shell() {
       nix-shell '<nixpkgs>' -A "$1"
