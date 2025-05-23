@@ -15,12 +15,23 @@
 
   plugins = [
     {
-      name = "zsh-fuckmit";
+      name = "fuckmit";
+      file = "zsh-fuckmit.plugin.zsh";
       src = pkgs.fetchFromGitHub {
         owner = "mingeme";
         repo = "zsh-fuckmit";
-        rev = "2cde93ffc824af305fd8cbc12fa0145d8ebe784b";
-        sha256 = "sha256-vkF5EdBSBosXlwawgenQ1qHkAO8dCTc07IYMoaXiq60=";
+        rev = "main";
+        sha256 = "sha256-UUvudz2ICVoOMs20syNnrgvSxwCFhe0wnHOeeH75Nwk=";
+      };
+    }
+    {
+      name = "pnpm";
+      file = "pnpm.plugin.zsh";
+      src = pkgs.fetchFromGitHub {
+        owner = "ntnyq";
+        repo = "omz-plugin-pnpm";
+        rev = "main";
+        sha256 = "sha256-xFj0A3jQx2LJqnaxpJ6VNXauyJ+JWOiydhUe2zON8n8=";
       };
     }
   ];
